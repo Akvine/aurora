@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
-      title="msg://UserListView.title"
+      title="msg://ConnectionListView.title"
       focusComponent="usersDataGrid">
     <data>
         <collection id="connectionsDc"
