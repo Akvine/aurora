@@ -3,6 +3,7 @@
 
     <menu id="application" title="msg://ru.akvine.aurora/menu.application.title" opened="true">
         <item view="User.list" title="msg://ru.akvine.aurora.view.user/UserListView.title"/>
+        <item view="Connection.list" title="msg://ru.akvine.aurora.view.connection/ConnectionListView.title"/>
     </menu>
 
 </menu-config>

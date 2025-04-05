@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://UserListView.title"
+      focusComponent="usersDataGrid">
+    <data>
+        <collection id="connectionsDc"
+                    class="ru.akvine.aurora.entity.Connection">
+            <fetchPlan extends="_base"/>
+            <loader id="connectionsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Connection e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="connectionsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createButton" action="connectionsDataGrid.create"/>
+            <button id="editButton" action="connectionsDataGrid.edit"/>
+            <button id="removeButton" action="connectionsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="connectionsDl"/>
+        </hbox>
+        <dataGrid id="connectionsDataGrid"
+                  width="100%"
+                  columnReorderingAllowed="true"
+                  minHeight="20em"
+                  dataContainer="connectionsDc">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="connectionName"/>
+                <column property="databaseName"/>
+                <column property="schema"/>
+                <column property="host"/>
+                <column property="port"/>
+                <column property="username"/>
+                <column property="databaseType"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectButton" action="selectAction"/>
+            <button id="discardButton" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

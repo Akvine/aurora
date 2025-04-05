@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://ConnectionDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="connectionsDc"
+                  class="ru.akvine.aurora.entity.Connection">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <formLayout id="form" dataContainer="connectionsDc">
+            <textField id="connectionName" property="connectionName"/>
+            <textField id="databaseName" property="databaseName"/>
+            <textField id="host" property="host"/>
+            <textField id="port" property="port"/>
+            <textField id="schema" property="schema"/>
+            <textField id="username" property="username"/>
+            <passwordField id="password" property="password"/>
+            <comboBox id="databaseTypeComboBox" property="databaseType"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseButton" action="saveAction"/>
+            <button id="closeButton" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>
