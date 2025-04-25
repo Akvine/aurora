@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.EventListener;
@@ -23,6 +24,7 @@ import javax.sql.DataSource;
 @Theme(value = "aurora")
 @PWA(name = "Aurora", shortName = "Aurora")
 @SpringBootApplication
+@EnableDiscoveryClient
 public class AuroraApplication implements AppShellConfigurator {
 
     @Autowired
